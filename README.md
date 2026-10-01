@@ -13,8 +13,8 @@
 Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, desarrollador fullstack part-time en **[Astrobit](https://astrobit.cl)**.
 
 - 🤖 Fundador de **[Lumi](https://lumiweb.lat)**, un asistente personal que vive en WhatsApp
-- 🌐 Aprendiendo a diseñar sistemas de agentes
-- ♟️ Ajedrez — construí [una herramienta](https://ajedrez-silk.vercel.app) para analizar mis propias partidas
+- 🌐 Aprendiendo a diseñar sistemas de agentes, LLMs, y testing.
+- ♟️ Ajedrez — construí una herramienta de uso personal para analizar mis propias partidas
 
 <br>
 
