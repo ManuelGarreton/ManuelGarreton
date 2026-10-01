@@ -1,43 +1,26 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=2600&pause=900&color=A78BFA&center=true&vCenter=true&width=720&lines=Manuel+Garret%C3%B3n;Construyo+Lumi+%E2%80%94+un+asistente+en+WhatsApp;Ingenier%C3%ADa+%40+UC+%C2%B7+Desarrollo+%40+Astrobit;TypeScript+%C2%B7+Next.js+%C2%B7+Prisma+%C2%B7+LLMs" alt="Manuel Garretón" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=2600&pause=900&color=A78BFA&center=true&vCenter=true&width=720&lines=Manuel+Garret%C3%B3n;Fundador+de+Lumi+%E2%80%94+un+asistente+en+WhatsApp;Ingenier%C3%ADa+%40+UC+%C2%B7+Desarrollo+%40+Astrobit;TypeScript+%C2%B7+Next.js+%C2%B7+Prisma+%C2%B7+LLMs" alt="Manuel Garretón" />
 
 <img src="https://komarev.com/ghpvc/?username=ManuelGarreton&style=flat&color=a78bfa&label=visitas+al+perfil" alt="profile views" />
 
-<br>
-
-<p align="center">
-  <a href="https://lumiweb.lat"><img src="https://img.shields.io/badge/Lumi-lumiweb.lat-a78bfa?style=for-the-badge&logo=whatsapp&logoColor=0d1117" alt="Lumi" /></a>
-  <a href="https://www.linkedin.com/in/manuel-garret%C3%B3n-wilzek-355341380"><img src="https://img.shields.io/badge/LinkedIn-Manuel_Garret%C3%B3n-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://www.instagram.com/manuko_garreton/"><img src="https://img.shields.io/badge/Instagram-%40manuko__garreton-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
-</p>
-
 </div>
-
-<p align="center">
-  <a href="#sobre-mí">Sobre mí</a> ·
-  <a href="#experiencia">Experiencia</a> ·
-  <a href="#proyectos">Proyectos</a> ·
-  <a href="#stack">Stack</a> ·
-  <a href="#github">GitHub</a> ·
-  <a href="#contacto">Contacto</a>
-</p>
 
 <br>
 
 ## Sobre mí
 
-Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, desarrollo en **Astrobit**, y construyo mis propios productos fuera del horario de clases. Me gusta llevar una idea hasta producción de verdad: con usuarios reales, pagos reales y los dolores de cabeza que vienen con eso (rate limits, bugs de madrugada, un servidor que hay que mantener vivo).
+Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, desarrollo en **[Astrobit](https://astrobit.cl)**, y construyo mis propios productos fuera del horario de clases. Me gusta llevar una idea hasta producción de verdad: con usuarios reales, pagos reales y los dolores de cabeza que vienen con eso (rate limits, bugs de madrugada, un servidor que hay que mantener vivo).
 
-- 🔭 Ahora mismo construyendo **[Lumi](https://lumiweb.lat)**, un asistente personal que vive en WhatsApp
-- 🌱 Aprendiendo a diseñar sistemas de agentes (tool calling, fallback entre proveedores de LLM, presupuestos de tokens)
+- 🔭 Fundador de **[Lumi](https://lumiweb.lat)**, un asistente personal que vive en WhatsApp
+- 🌱 Aprendiendo a diseñar sistemas de agentes (tool calling, fallback entre proveedores de LLM)
 - ♟️ Fuera del código: ajedrez — construí [una herramienta](https://ajedrez-silk.vercel.app) para analizar mis propias partidas
 
 <br>
 
 ## Experiencia
 
-**Astrobit** — Desarrollo e integraciones.
+**[Astrobit](https://astrobit.cl)** — Desarrollador fullstack en una ERP omnicanal.
 
 <br>
 
@@ -47,7 +30,7 @@ Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, d
 
 Un asistente que vive donde ya está la gente: WhatsApp. Notas, pendientes, recordatorios, calendario, finanzas personales, seguimiento de ramos (Canvas) — todo por chat, con un dashboard web para lo que es más cómodo ver en pantalla grande. En producción, con usuarios reales y plan de pago.
 
-Lo más interesante de construirlo fue diseñar el motor de *tool calling*: un enrutador que decide qué herramientas ofrecerle al modelo según el mensaje (para no saturar el presupuesto de tokens), una cadena de respaldo entre proveedores de LLM cuando uno se satura, y memoria de largo plazo por usuario.
+Lo más interesante de construirlo fue diseñar el motor de *tool calling*: un enrutador que decide qué herramientas ofrecerle al modelo según el mensaje, una cadena de respaldo entre proveedores de LLM cuando uno se satura, y memoria de largo plazo por usuario.
 
 `TypeScript` · `Next.js` · `Prisma` · `PostgreSQL` · `Groq / LLMs` · `WhatsApp Web API` · `Vercel`
 
@@ -84,20 +67,19 @@ No es otro entrenador genérico: analiza **mis** partidas de Chess.com con Stock
 
 ## Contacto
 
-| Dónde | Enlace |
-| :-- | :-- |
-| 💬 Lumi | [lumiweb.lat](https://lumiweb.lat) |
-| 💼 LinkedIn | [Manuel Garretón Wilzek](https://www.linkedin.com/in/manuel-garret%C3%B3n-wilzek-355341380) |
-| 📸 Instagram | [@manuko_garreton](https://www.instagram.com/manuko_garreton/) |
+<div align="center">
 
-### Correos
+<a href="https://lumiweb.lat"><img src="https://img.shields.io/badge/Lumi-a78bfa?style=for-the-badge&logo=whatsapp&logoColor=0d1117" alt="Lumi" /></a>&nbsp;&nbsp;
+<a href="https://www.instagram.com/manuko_garreton/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/manuel-garret%C3%B3n-wilzek-355341380"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 
-| Para | Correo |
-| :-- | :-- |
-| Universidad | `magarreton@uc.cl` |
-| Trabajo / Astrobit | `magarreton@astrobit.cl` |
+<br><br>
 
-<sub>Los correos están como texto para copiarlos directo: los enlaces `mailto:` dependen del programa de correo que tenga configurado cada navegador (a muchos los manda a Gmail o a una búsqueda de Google).</sub>
+| Universidad | Astrobit |
+| :-: | :-: |
+| `magarreton@uc.cl` | `magarreton@astrobit.cl` |
+
+</div>
 
 <br>
 
