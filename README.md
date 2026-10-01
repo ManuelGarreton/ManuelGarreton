@@ -18,6 +18,12 @@ Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, d
 
 <br>
 
+## Experiencia
+
+**Astrobit** — Desarrollo e integraciones.
+
+<br>
+
 ## Proyectos
 
 ### [Lumi](https://lumiweb.lat) — asistente personal en WhatsApp
