@@ -52,9 +52,15 @@ No es otro entrenador genérico: analiza **mis** partidas de Chess.com con Stock
 
 ## GitHub
 
+<!--
+  Generado por el workflow de Acciones "Metrics" (.github/workflows/metrics.yml,
+  lowlighter/metrics) — corre con un token propio que SÍ puede contar la
+  actividad de repos privados (nunca expone sus nombres, solo suma al total).
+  El SVG se commitea acá mismo, así que carga instantáneo. Para activarlo falta
+  crear el secret METRICS_TOKEN (ver README del workflow / aviso del asistente).
+-->
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ManuelGarreton&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=a78bfa&icon_color=a78bfa" alt="Estadísticas de GitHub" height="165" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ManuelGarreton&theme=dark&hide_border=true&background=0d1117&ring=a78bfa&fire=a78bfa" alt="Racha de contribuciones" height="165" />
+  <img src="github-metrics.svg" alt="Estadísticas de GitHub" />
 </p>
 
 <br>
