@@ -14,7 +14,7 @@ Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, d
 
 - 🤖 Fundador de **[Lumi](https://lumiweb.lat)**, un asistente personal que vive en WhatsApp
 - 🌐 Aprendiendo a diseñar sistemas de agentes
-- ♟️ Fuera del código: ajedrez — construí [una herramienta](https://ajedrez-silk.vercel.app) para analizar mis propias partidas
+- ♟️ Ajedrez — construí [una herramienta](https://ajedrez-silk.vercel.app) para analizar mis propias partidas
 
 <br>
 
