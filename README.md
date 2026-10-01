@@ -4,11 +4,28 @@
 
 <img src="https://komarev.com/ghpvc/?username=ManuelGarreton&style=flat&color=a78bfa&label=visitas+al+perfil" alt="profile views" />
 
+<br>
+
+<p align="center">
+  <a href="https://lumiweb.lat"><img src="https://img.shields.io/badge/Lumi-lumiweb.lat-a78bfa?style=for-the-badge&logo=whatsapp&logoColor=0d1117" alt="Lumi" /></a>
+  <a href="https://www.linkedin.com/in/manuel-garret%C3%B3n-wilzek-355341380"><img src="https://img.shields.io/badge/LinkedIn-Manuel_Garret%C3%B3n-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://www.instagram.com/manuko_garreton/"><img src="https://img.shields.io/badge/Instagram-%40manuko__garreton-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
+</p>
+
 </div>
+
+<p align="center">
+  <a href="#sobre-mí">Sobre mí</a> ·
+  <a href="#experiencia">Experiencia</a> ·
+  <a href="#proyectos">Proyectos</a> ·
+  <a href="#stack">Stack</a> ·
+  <a href="#github">GitHub</a> ·
+  <a href="#contacto">Contacto</a>
+</p>
 
 <br>
 
-## `Sobre mí`
+## Sobre mí
 
 Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, desarrollo en **Astrobit**, y construyo mis propios productos fuera del horario de clases. Me gusta llevar una idea hasta producción de verdad: con usuarios reales, pagos reales y los dolores de cabeza que vienen con eso (rate limits, bugs de madrugada, un servidor que hay que mantener vivo).
 
@@ -67,22 +84,20 @@ No es otro entrenador genérico: analiza **mis** partidas de Chess.com con Stock
 
 ## Contacto
 
-<div align="center">
+| Dónde | Enlace |
+| :-- | :-- |
+| 💬 Lumi | [lumiweb.lat](https://lumiweb.lat) |
+| 💼 LinkedIn | [Manuel Garretón Wilzek](https://www.linkedin.com/in/manuel-garret%C3%B3n-wilzek-355341380) |
+| 📸 Instagram | [@manuko_garreton](https://www.instagram.com/manuko_garreton/) |
 
-<a href="https://lumiweb.lat">
-  <img src="https://img.shields.io/badge/Lumi-a78bfa?style=for-the-badge&logo=whatsapp&logoColor=0d1117" alt="Lumi" />
-</a>&nbsp;&nbsp;
-<a href="mailto:magarreton@uc.cl">
-  <img src="https://img.shields.io/badge/UC-magarreton%40uc.cl-6366f1?style=for-the-badge&logo=googlescholar&logoColor=white" alt="Correo UC" />
-</a>&nbsp;&nbsp;
-<a href="mailto:magarreton@astrobit.cl">
-  <img src="https://img.shields.io/badge/Astrobit-magarreton%40astrobit.cl-6366f1?style=for-the-badge&logo=maildotru&logoColor=white" alt="Correo Astrobit" />
-</a>&nbsp;&nbsp;
-<a href="https://www.linkedin.com/search/results/people/?keywords=Manuel%20Garret%C3%B3n%20Wilzek">
-  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-</a>
+### Correos
 
-</div>
+| Para | Correo |
+| :-- | :-- |
+| Universidad | `magarreton@uc.cl` |
+| Trabajo / Astrobit | `magarreton@astrobit.cl` |
+
+<sub>Los correos están como texto para copiarlos directo: los enlaces `mailto:` dependen del programa de correo que tenga configurado cada navegador (a muchos los manda a Gmail o a una búsqueda de Google).</sub>
 
 <br>
 
