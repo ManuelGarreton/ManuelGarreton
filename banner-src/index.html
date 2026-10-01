@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=400" />
+    <title>MG Chat Bubble</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: #0d1117;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 400px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #stage {
+        position: relative;
+        width: 1920px;
+        height: 400px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      /* The single full-bleed sub-composition slot. */
+      #el-mg {
+        position: absolute;
+        inset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="stage"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="3.8"
+      data-fps="30"
+      data-width="1920"
+      data-height="400"
+    >
+      <!-- One continuous particle field for the whole 0-3.8s loop. -->
+      <div
+        id="el-mg"
+        class="clip"
+        data-composition-id="mg-chat-bubble"
+        data-composition-src="compositions/index.html"
+        data-start="0"
+        data-duration="3.8"
+        data-track-index="0"
+        data-width="1920"
+        data-height="400"
+      ></div>
+    </div>
+    <script>
+      // Thin orchestrator: all motion lives in the sub-composition timeline.
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/hyperframes.json",
+  "registry": "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry",
+  "paths": {
+    "blocks": "compositions",
+    "components": "compositions/components",
+    "assets": "assets"
+  },
+  "media": {
+    "autoProxy": true
+  },
+  "authoringSkill": "motion-graphics",
+  "registryItems": [
+    {
+      "name": "particle-text-dissolve",
+      "type": "hyperframes:component",
+      "target": "compositions/components/particle-text-dissolve.html"
+    },
+    {
+      "name": "particle-image-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/particle-image-reveal.html"
+    },
+    {
+      "name": "icon-morph-beat",
+      "type": "hyperframes:component",
+      "target": "compositions/components/icon-morph-beat.html"
+    },
+    {
+      "name": "icon-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/icon-swap.html"
+    }
+  ]
+}

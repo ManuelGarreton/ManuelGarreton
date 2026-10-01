@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/banner.gif" width="100%" alt="Partículas que forman las iniciales MG y se reorganizan en una burbuja de chat" />
+
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=2600&pause=900&color=A78BFA&center=true&vCenter=true&width=720&lines=Manuel+Garret%C3%B3n;Fundador+de+Lumi+%E2%80%94+un+asistente+en+WhatsApp;Ingenier%C3%ADa+%40+UC+%C2%B7+Desarrollo+%40+Astrobit;TypeScript+%C2%B7+Next.js+%C2%B7+Prisma+%C2%B7+LLMs" alt="Manuel Garretón" />
 
 <img src="https://komarev.com/ghpvc/?username=ManuelGarreton&style=flat&color=a78bfa&label=visitas+al+perfil" alt="profile views" />
@@ -60,8 +62,8 @@ No es otro entrenador genérico: analiza **mis** partidas de Chess.com con Stock
   Generado por el workflow de Acciones "Metrics" (.github/workflows/metrics.yml,
   lowlighter/metrics) — corre con un token propio que SÍ puede contar la
   actividad de repos privados (nunca expone sus nombres, solo suma al total).
-  El SVG se commitea acá mismo, así que carga instantáneo. Para activarlo falta
-  crear el secret METRICS_TOKEN (ver README del workflow / aviso del asistente).
+  El SVG se commitea acá mismo, así que carga instantáneo. Se regenera a diario
+  (cron) usando el secret METRICS_TOKEN.
 -->
 <p align="center">
   <img src="github-metrics.svg" alt="Estadísticas de GitHub" />
