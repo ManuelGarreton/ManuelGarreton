@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="90" viewBox="0 0 600 90">
+  <rect width="600" height="90" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <text x="300" y="38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#a78bfa">Estadísticas de GitHub pendientes de activar</text>
+  <text x="300" y="60" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#8b949e">Falta el secret METRICS_TOKEN — ver .github/workflows/metrics.yml</text>
+</svg>
