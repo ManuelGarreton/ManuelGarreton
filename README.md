@@ -8,7 +8,7 @@
 
 <br>
 
-## `whoami`
+## `Sobre mí`
 
 Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, desarrollo en **Astrobit**, y construyo mis propios productos fuera del horario de clases. Me gusta llevar una idea hasta producción de verdad: con usuarios reales, pagos reales y los dolores de cabeza que vienen con eso (rate limits, bugs de madrugada, un servidor que hay que mantener vivo).
 
@@ -33,18 +33,6 @@ Lo más interesante de construirlo fue diseñar el motor de *tool calling*: un e
 No es otro entrenador genérico: analiza **mis** partidas de Chess.com con Stockfish, arma un roadmap de estudio por bloques de apertura atado a mis resultados reales, y responde preguntas de teoría con una base de conocimiento propia en vez de improvisar.
 
 `Next.js` · `TypeScript` · `Stockfish (UCI)` · `Prisma`
-
-### Hormiguero — juego web (en desarrollo)
-
-Una colonia de criaturas con personalidad propia y humor reactivo, en un mapa 2.5D por capas. Pensado para que nadie "muera por descuido" — hay accidentes, pero se curan solos.
-
-`Next.js` · `Pixi.js v8` · `Zustand` · `Prisma`
-
-### Jarvis — asistente de voz personal
-
-Un asistente de voz propio con memoria y rutinas, pensado para estar "siempre escuchando" sin depender de un asistente comercial.
-
-`Python` · `LiveKit` · `Pipecat` · `Next.js`
 
 <br>
 
