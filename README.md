@@ -20,7 +20,11 @@ Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, d
 
 ## Experiencia
 
-**[Astrobit](https://astrobit.cl)** — Desarrollador fullstack en una ERP omnicanal.
+### [Astrobit](https://astrobit.cl) — Desarrollador fullstack (part-time)
+
+ERP chilena omnicanal para vender en **Mercado Libre, Falabella, Paris, Ripley y Shopify** con **un solo inventario**. Emite automáticamente la boleta o factura al **SII** y muestra el **margen real de cada venta**, después de la comisión del canal.
+
+Trabajo en el producto de punta a punta: desde las integraciones con los marketplaces hasta la interfaz con la que lo usan las tiendas.
 
 <br>
 
