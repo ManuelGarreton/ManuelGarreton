@@ -10,10 +10,10 @@
 
 ## Sobre mí
 
-Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, desarrollo en **[Astrobit](https://astrobit.cl)**, y construyo mis propios productos fuera del horario de clases. Me gusta llevar una idea hasta producción de verdad: con usuarios reales, pagos reales y los dolores de cabeza que vienen con eso (rate limits, bugs de madrugada, un servidor que hay que mantener vivo).
+Estudiante de Ingeniería en la **Pontificia Universidad Católica de Chile**, desarrollador fullstack part-time en **[Astrobit](https://astrobit.cl)**.
 
-- 🔭 Fundador de **[Lumi](https://lumiweb.lat)**, un asistente personal que vive en WhatsApp
-- 🌱 Aprendiendo a diseñar sistemas de agentes (tool calling, fallback entre proveedores de LLM)
+- 🤖 Fundador de **[Lumi](https://lumiweb.lat)**, un asistente personal que vive en WhatsApp
+- 🌐 Aprendiendo a diseñar sistemas de agentes
 - ♟️ Fuera del código: ajedrez — construí [una herramienta](https://ajedrez-silk.vercel.app) para analizar mis propias partidas
 
 <br>
