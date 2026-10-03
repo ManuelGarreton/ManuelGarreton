@@ -110,28 +110,98 @@ let inMask = 0;
 for (const v of sharp) if (v >= 0) { hist[Math.round(v * 255)]++; inMask++; }
 const cdf = []; let acc = 0;
 for (let i = 0; i < 256; i++) { acc += hist[i]; cdf[i] = acc / Math.max(1, inMask); }
+// Pelo: es oscuro, así que por tono casi no recibe puntos y la cabeza se ve "pelada".
+// Zona de pelo = píxeles oscuros sobre la frente, o a los costados de la cara (sienes).
+let headTop = BOX_H, sumX = 0, cntX = 0;
+for (let y = 0; y < BOX_H; y++) for (let x = 0; x < BOX_W; x++) {
+  if (Lmap[y * BOX_W + x] < 0) continue;
+  headTop = Math.min(headTop, y);
+}
+for (let y = headTop; y < headTop + 40; y++) for (let x = 0; x < BOX_W; x++) {
+  if (Lmap[y * BOX_W + x] >= 0) { sumX += x; cntX++; }
+}
+const headCx = sumX / Math.max(1, cntX);
+const isHair = (x, y, L) =>
+  L >= 0 && L < 0.33 && (y < headTop + 30 || (y < headTop + 62 && Math.abs(x - headCx) > 30));
+
 const photo = sample(src("photo-cut.png"), (r, g, b, a, x, y) => {
   const v = sharp[y * BOX_W + x];
   if (v < 0) return 0;
   // El pecho se desvanece hacia abajo: la cara es el foco (como el retrato de la referencia).
   const fade = y < BOX_H * 0.5 ? 1 : 1 - 0.6 * ((y - BOX_H * 0.5) / (BOX_H * 0.5));
-  return (0.03 + Math.pow(cdf[Math.round(v * 255)], 1.8)) * fade;
+  const tone = 0.03 + Math.pow(cdf[Math.round(v * 255)], 1.8);
+  // Textura de mechones: el realce local (v) varía la densidad dentro del pelo.
+  const hair = isHair(x, y, Lmap[y * BOX_W + x]) ? 0.16 + 0.5 * v : 0;
+  return Math.max(tone, hair) * fade;
 }, { crop: PHOTO_CROP });
 
 const penguin = sample(src("penguin.png"), (r, g, b) => (r > 120 && r > b + 30 ? 0.9 : 0), { w: 260, h: 340 });
 
-// Claude: bounding box del naranjo para no tomar blancos del fondo (cielo, baranda).
+// Claude: naranjo incluyendo los tonos en sombra (las 2 patas traseras son más oscuras).
+// Después se dejan solo las piezas grandes conectadas del muñeco: así se descartan
+// manchas sueltas del fondo (algo "colgando" de la mano, reflejos de la baranda).
 const claudePx = pixels(src("claude.png"), BOX_W, BOX_H);
-const isOrange = (r, g, b) => r > 170 && g > 50 && g < 160 && b < 90 && r - g > 60;
-let x0 = BOX_W, x1 = 0, y0 = BOX_H, y1 = 0;
+const isOrange = (r, g, b) => r > 115 && r - g > 45 && g < 165 && b < 95 && r - b > 70;
+const orange = new Uint8Array(BOX_W * BOX_H);
 for (let y = 0; y < BOX_H; y++) for (let x = 0; x < BOX_W; x++) {
   const [r, g, b] = claudePx(x, y);
-  if (isOrange(r, g, b)) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+  if (isOrange(r, g, b)) orange[y * BOX_W + x] = 1;
 }
+const keep = new Uint8Array(BOX_W * BOX_H), seen = new Uint8Array(BOX_W * BOX_H);
+for (let i = 0; i < orange.length; i++) {
+  if (!orange[i] || seen[i]) continue;
+  const comp = [], stack = [i];
+  seen[i] = 1;
+  while (stack.length) {
+    const j = stack.pop(); comp.push(j);
+    const x = j % BOX_W, y = (j / BOX_W) | 0;
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+      const xx = x + dx, yy = y + dy;
+      if (xx < 0 || yy < 0 || xx >= BOX_W || yy >= BOX_H) continue;
+      const k = yy * BOX_W + xx;
+      if (orange[k] && !seen[k]) { seen[k] = 1; stack.push(k); }
+    }
+  }
+  if (comp.length >= 250) for (const j of comp) keep[j] = 1; // patas incluidas (~600 px c/u)
+}
+// Apertura morfológica (erosión + dilatación, radio 2): borra salientes delgadas
+// (el "hilo" bajo el brazo derecho, el gancho arriba a la izquierda) sin tocar brazos ni patas.
+function morph(src, R, op) {
+  const out = new Uint8Array(src.length);
+  for (let y = 0; y < BOX_H; y++) for (let x = 0; x < BOX_W; x++) {
+    let v = op === "erode" ? 1 : 0;
+    for (let dy = -R; dy <= R && (op === "erode" ? v : !v); dy++) for (let dx = -R; dx <= R; dx++) {
+      const xx = x + dx, yy = y + dy;
+      const inside = xx >= 0 && yy >= 0 && xx < BOX_W && yy < BOX_H ? src[yy * BOX_W + xx] : 0;
+      if (op === "erode" && !inside) { v = 0; break; }
+      if (op === "dilate" && inside) { v = 1; break; }
+    }
+    out[y * BOX_W + x] = v;
+  }
+  return out;
+}
+const opened = morph(morph(keep, 2, "erode"), 2, "dilate");
+for (let i = 0; i < keep.length; i++) keep[i] = keep[i] && opened[i];
+let x0 = BOX_W, x1 = 0, y0 = BOX_H, y1 = 0;
+for (let i = 0; i < keep.length; i++) if (keep[i]) {
+  const x = i % BOX_W, y = (i / BOX_W) | 0;
+  x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y);
+}
+const nearDark = (x, y) => {
+  for (let dy = -3; dy <= 3; dy++) for (let dx = -3; dx <= 3; dx++) {
+    const xx = x + dx, yy = y + dy;
+    if (xx < 0 || yy < 0 || xx >= BOX_W || yy >= BOX_H) continue;
+    const [r, g, b] = claudePx(xx, yy);
+    if (lum(r, g, b) < 0.16) return true;
+  }
+  return false;
+};
 const claude = sample(src("claude.png"), (r, g, b, a, x, y) => {
+  if (keep[y * BOX_W + x]) return 0.34;
   if (x < x0 || x > x1 || y < y0 || y > y1) return 0;
-  if (isOrange(r, g, b)) return 0.34;
-  if (r > 165 && g > 165 && b > 165) return 1; // píxeles blancos de los lentes "deal with it"
+  // Blancos de los lentes "deal with it": solo si hay negro de los lentes al lado. Sin esto
+  // entraban blancos del fondo (baranda bajo el brazo, casa arriba a la izquierda).
+  if (r > 165 && g > 165 && b > 165 && nearDark(x, y)) return 1;
   return 0;
 });
 
