@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.gif" width="100%" alt="Partículas que forman las iniciales MG y se reorganizan en una burbuja de chat" />
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=2600&pause=900&color=A78BFA&center=true&vCenter=true&width=720&lines=Manuel+Garret%C3%B3n;Fundador+de+Lumi+%E2%80%94+un+asistente+en+WhatsApp;Ingenier%C3%ADa+%40+UC+%C2%B7+Desarrollo+%40+Astrobit;TypeScript+%C2%B7+Next.js+%C2%B7+Prisma+%C2%B7+LLMs" alt="Manuel Garretón" />
+<img src="assets/banner.gif" width="100%" alt="Ventana de vim con profile.yml de Manuel Garretón; a la izquierda un retrato de puntos que se transforma en el pingüino de Linux y en Claude con lentes, y abajo frases que se escriben y borran" />
 
 <img src="https://komarev.com/ghpvc/?username=ManuelGarreton&style=flat&color=a78bfa&label=visitas+al+perfil" alt="profile views" />
 

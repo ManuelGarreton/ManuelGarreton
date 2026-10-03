@@ -1,70 +1,256 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=400" />
-    <title>MG Chat Bubble</title>
+    <meta name="viewport" content="width=960, height=600" />
+    <title>profile.yml</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/points.js"></script>
     <style>
       :root {
         --bg: #0d1117;
+        --win: #111827;
+        --panel: #0f1623;
+        --line: #1f2a3a;
+        --fg: #e6edf3;
+        --muted: #8f9cb0;
+        --dim: #7a889c;
+        --violet: #a78bfa;
+        --violet-soft: #c4b5fd;
       }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 400px;
-        overflow: hidden;
-        background: var(--bg);
-      }
-      #stage {
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 960px; height: 600px; overflow: hidden; background: var(--bg); }
+      #root {
         position: relative;
-        width: 1920px;
-        height: 400px;
-        overflow: hidden;
+        width: 100%;
+        height: 100%;
         background: var(--bg);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        color: var(--fg);
       }
-      /* The single full-bleed sub-composition slot. */
-      #el-mg {
+      #win {
         position: absolute;
-        inset: 0;
+        left: 18px; top: 16px; width: 924px; height: 488px;
+        background: var(--win);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
       }
+      #titlebar {
+        height: 34px;
+        border-bottom: 1px solid var(--line);
+        display: flex; align-items: center; justify-content: center;
+        position: relative;
+        font-size: 11px; color: var(--muted);
+      }
+      #dots { position: absolute; left: 14px; top: 11px; display: flex; gap: 7px; }
+      #dots i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+      .pane {
+        position: absolute; top: 50px; bottom: 16px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      #map { left: 16px; width: 330px; }
+      #yml { left: 360px; right: 16px; }
+      .pane-head {
+        height: 30px; display: flex; align-items: center; justify-content: space-between;
+        padding: 0 12px; font-size: 10.5px; color: var(--muted);
+        border-bottom: 1px solid var(--line);
+      }
+      .pane-head b { color: var(--fg); font-weight: 700; letter-spacing: 0.04em; }
+      #map-canvas { position: absolute; left: 14px; top: 38px; display: block; }
+      .corner { position: absolute; width: 12px; height: 12px; border-color: var(--dim); border-style: solid; }
+      #map-foot {
+        position: absolute; left: 12px; right: 12px; bottom: 8px;
+        display: flex; justify-content: space-between;
+        font-size: 9px; color: var(--muted); letter-spacing: 0.04em;
+      }
+      #handle {
+        font-size: 10.5px; font-weight: 700; color: var(--fg);
+        background: #1d2638; border-radius: 999px; padding: 4px 14px;
+      }
+      #code { padding: 9px 0 0; font-size: 12px; line-height: 18.6px; }
+      .ln { display: flex; white-space: pre; }
+      .ln .no { width: 40px; text-align: right; padding-right: 14px; color: var(--dim); flex: none; }
+      .ln .body { white-space: pre; }
+      .k0 { color: var(--fg); font-weight: 700; }
+      .k { color: var(--violet); }
+      .v { color: var(--fg); }
+      #status {
+        position: absolute; left: 0; right: 0; bottom: 0; height: 28px;
+        border-top: 1px solid var(--line);
+        display: flex; align-items: center; gap: 14px; padding: 0 10px;
+        font-size: 10px; color: var(--muted);
+      }
+      #mode { background: var(--violet); color: #1a1033; font-weight: 800; padding: 3px 10px; border-radius: 3px; letter-spacing: 0.06em; }
+      #status .file { color: var(--fg); font-weight: 700; }
+      #status .enc { margin-left: 70px; }
+      #status .pos { margin-left: auto; }
+      #phrase {
+        position: absolute; left: 0; right: 0; top: 526px; height: 46px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 27px; font-weight: 600; color: var(--violet); white-space: pre;
+      }
+      #caret { display: inline-block; width: 13px; height: 30px; background: var(--violet-soft); margin-left: 3px; }
     </style>
   </head>
   <body>
-    <div
-      id="stage"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="3.8"
-      data-fps="30"
-      data-width="1920"
-      data-height="400"
-    >
-      <!-- One continuous particle field for the whole 0-3.8s loop. -->
-      <div
-        id="el-mg"
-        class="clip"
-        data-composition-id="mg-chat-bubble"
-        data-composition-src="compositions/index.html"
-        data-start="0"
-        data-duration="3.8"
-        data-track-index="0"
-        data-width="1920"
-        data-height="400"
-      ></div>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="49.186" data-fps="24" data-width="960" data-height="600">
+      <div id="win">
+        <div id="titlebar">
+          <div id="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+          vim ~/ManuelGarreton/profile.yml
+        </div>
+
+        <div id="map" class="pane">
+          <div class="pane-head"><b>VISUAL.MAP</b><span>300×340 / 1-BIT</span></div>
+          <i class="corner" style="left:8px;top:36px;border-width:1px 0 0 1px"></i>
+          <i class="corner" style="right:8px;top:36px;border-width:1px 1px 0 0"></i>
+          <i class="corner" style="left:8px;bottom:24px;border-width:0 0 1px 1px"></i>
+          <i class="corner" style="right:8px;bottom:24px;border-width:0 1px 1px 0"></i>
+          <canvas id="map-canvas" width="300" height="340"></canvas>
+          <div id="map-foot"><span id="pts">PTS 5200 · FS/DITHER</span><span id="frame-label">01/03 · PORTRAIT</span></div>
+        </div>
+
+        <div id="yml" class="pane">
+          <div class="pane-head"><span><b>profile.yml</b> [YAML]</span><span id="handle">@ManuelGarreton</span></div>
+          <div id="code"></div>
+          <div id="status">
+            <span id="mode">NORMAL</span><span class="file">profile.yml</span><span class="enc">[utf-8]</span><span class="pos" id="pos"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="phrase"><span id="typed"></span><span id="caret"></span></div>
     </div>
+
     <script>
-      // Thin orchestrator: all motion lives in the sub-composition timeline.
-      window.__timelines = window.__timelines || {};
+      // ── Contenido (confirmado por Manuel) ────────────────────────────────
+      const YAML = [
+        ["profile:"],
+        ["  ", "subject", "Manuel Garretón Wilzek"],
+        ["  ", "role", "Estudiante de Ingeniería UC · Fullstack Developer"],
+        ["  ", "origin", "Santiago, Chile"],
+        ["  ", "focus", "Agentes · LLMs · Testing"],
+        ["  ", "status", "Construyendo Lumi · Fullstack @Astrobit (part-time)"],
+        ["  ", "toolchain", "TypeScript · Next.js · Prisma"],
+        ["stack:"],
+        ["  ", "frontend", "Next.js · React · Tailwind"],
+        ["  ", "backend", "Node.js · Python"],
+        ["  ", "data", "PostgreSQL · Prisma"],
+        ["  ", "ai", "LLMs · Tool calling · Claude Code"],
+        ["  ", "infra", "Vercel · Docker"],
+        ["contact:"],
+        ["  ", "github", "ManuelGarreton"],
+        ["  ", "web", "lumiweb.lat"],
+        ["  ", "linkedin", "/in/manuel-garretón-wilzek-355341380"],
+        ["  ", "timezone", "UTC-3 · Santiago"],
+      ];
+      const PHRASES = [
+        "Manuel Garretón — Fundador de Lumi",
+        "Ingeniería UC · Fullstack @ Astrobit",
+        "TypeScript · Next.js · Agentes con LLMs",
+      ];
+      const LABELS = ["01/03 · PORTRAIT", "02/03 · TUX", "03/03 · CLAUDE"];
+
+      // ── Panel profile.yml (estático) ─────────────────────────────────────
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+      document.getElementById("code").innerHTML = YAML.map((l, i) => {
+        const body = l.length === 1
+          ? `<span class="k0">${esc(l[0])}</span>`
+          : `${l[0]}<span class="k">${esc(l[1])}:</span> <span class="v">${esc(l[2])}</span>`;
+        return `<div class="ln"><span class="no">${i + 1}</span><span class="body">${body}</span></div>`;
+      }).join("");
+      const text = YAML.map((l) => (l.length === 1 ? l[0] : `${l[0]}${l[1]}: ${l[2]}`)).join("\n") + "\n";
+      const bytes = new TextEncoder().encode(text).length;
+      document.getElementById("pos").textContent = `${YAML.length}L, ${bytes}B   100%   ${YAML.length}:1`;
+
+      // ── Guion temporal ───────────────────────────────────────────────────
+      // Por imagen: 3 frases (escribir → mantener → borrar) y luego la transición
+      // de partículas a la imagen siguiente. La última vuelve a la primera (loop).
+      const TYPE_CPS = 20, HOLD = 1.6, ERASE_CPS = 42, GAP = 0.35, LEAD = 0.5, MORPH = 2.0;
+      const phraseSlots = []; // {start, phrase}
+      const morphs = [];      // {start, from, to}
+      let t = 0;
+      for (let img = 0; img < 3; img++) {
+        t += LEAD;
+        for (const p of PHRASES) {
+          const typeD = p.length / TYPE_CPS, eraseD = p.length / ERASE_CPS;
+          phraseSlots.push({ start: t, phrase: p, typeD, eraseD, end: t + typeD + HOLD + eraseD });
+          t += typeD + HOLD + eraseD + GAP;
+        }
+        morphs.push({ start: t, from: img, to: (img + 1) % 3 });
+        t += MORPH;
+      }
+      const TOTAL = t; // ≈ 49.19 s (coincide con data-duration del root)
+
+      function typedAt(time) {
+        for (const s of phraseSlots) {
+          if (time < s.start || time >= s.end) continue;
+          const k = time - s.start, n = s.phrase.length;
+          if (k < s.typeD) return { txt: s.phrase.slice(0, Math.floor(k * TYPE_CPS)), active: true };
+          if (k < s.typeD + HOLD) return { txt: s.phrase, active: false };
+          const left = n - Math.floor((k - s.typeD - HOLD) * ERASE_CPS);
+          return { txt: s.phrase.slice(0, Math.max(0, left)), active: true };
+        }
+        return { txt: "", active: false };
+      }
+
+      // ── Partículas ───────────────────────────────────────────────────────
+      const F = window.POINTS.frames, N = window.POINTS.n;
+      let seed = 7;
+      const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+      const delay = new Float32Array(N), ang = new Float32Array(N), rad = new Float32Array(N);
+      for (let i = 0; i < N; i++) {
+        delay[i] = 0.32 * (i / N) + 0.08 * rnd(); // de arriba hacia abajo, con algo de azar
+        ang[i] = rnd() * Math.PI * 2;
+        rad[i] = 22 + rnd() * 70;
+      }
+      const ctx = document.getElementById("map-canvas").getContext("2d");
+      const easeOut = (x) => 1 - Math.pow(1 - x, 3);
+      const easeInOut = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+
+      function drawParticles(time) {
+        ctx.clearRect(0, 0, 300, 340);
+        const m = morphs.find((mm) => time >= mm.start && time < mm.start + MORPH);
+        let frameIdx = 0;
+        for (const mm of morphs) if (time >= mm.start + MORPH) frameIdx = mm.to;
+        if (!m) {
+          ctx.fillStyle = "#a78bfa";
+          for (const [x, y] of F[frameIdx]) ctx.fillRect(x, y, 1.6, 1.6);
+          document.getElementById("frame-label").textContent = LABELS[frameIdx];
+          return;
+        }
+        const p = (time - m.start) / MORPH, A = F[m.from], B = F[m.to];
+        document.getElementById("frame-label").textContent = p < 0.5 ? LABELS[m.from] : LABELS[m.to];
+        for (let i = 0; i < N; i++) {
+          const q = Math.min(1, Math.max(0, (p - delay[i]) / 0.6));
+          const sx = A[i][0] + Math.cos(ang[i]) * rad[i], sy = A[i][1] + Math.sin(ang[i]) * rad[i] * 0.8;
+          let x, y;
+          if (q < 0.45) { const e = easeOut(q / 0.45); x = A[i][0] + (sx - A[i][0]) * e; y = A[i][1] + (sy - A[i][1]) * e; }
+          else { const e = easeInOut((q - 0.45) / 0.55); x = sx + (B[i][0] - sx) * e; y = sy + (B[i][1] - sy) * e; }
+          ctx.globalAlpha = 1 - 0.55 * Math.sin(Math.PI * q);
+          ctx.fillStyle = "#a78bfa";
+          ctx.fillRect(x, y, 1.6, 1.6);
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      // ── Render por tiempo (seek-safe: todo se deriva de t) ───────────────
+      const typedEl = document.getElementById("typed"), caretEl = document.getElementById("caret");
+      function render(time) {
+        drawParticles(time);
+        const { txt, active } = typedAt(time);
+        typedEl.textContent = txt;
+        caretEl.style.opacity = active || Math.floor(time / 0.5) % 2 === 0 ? 1 : 0;
+      }
+
       const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      tl.fromTo(clock, { t: 0 }, { t: TOTAL, duration: TOTAL, ease: "none", onUpdate: () => render(clock.t) }, 0);
+      render(0);
       window.__timelines["main"] = tl;
-      tl.seek(0);
     </script>
   </body>
 </html>
